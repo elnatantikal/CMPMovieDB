@@ -6,20 +6,27 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.unit.dp
 import com.example.moviedb.core.model.Strings
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 @Composable
@@ -51,6 +58,7 @@ fun ProfileScreen() {
                     text = "${Strings.user_name.get()}: John Doe",
                     modifier = Modifier.weight(1f)
                 )
+                Camera(mutableStateOf(null))
             }
             Spacer(Modifier.height(16.dp))
             Row(
@@ -70,4 +78,13 @@ fun ProfileScreen() {
             }
         }
     }
+}
+
+@Composable
+private fun Camera(imageBitmap: MutableState<ImageBitmap?>) {
+    Button(
+        modifier = Modifier.padding(end = 8.dp),
+        onClick = {},
+        content = { Text(Strings.camera.get()) }
+    )
 }
