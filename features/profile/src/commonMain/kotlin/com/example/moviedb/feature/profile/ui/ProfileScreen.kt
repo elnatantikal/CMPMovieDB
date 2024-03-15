@@ -48,7 +48,7 @@ fun ProfileScreen() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "${Strings.user_name.get()}: Elna",
+                    text = "${Strings.user_name.get()}: John Doe",
                     modifier = Modifier.weight(1f)
                 )
             }
